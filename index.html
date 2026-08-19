@@ -24,9 +24,45 @@ section{min-height:100vh;display:flex;flex-direction:column;justify-content:cent
 input{padding:15px;border:none;border-radius:30px;width:260px;margin:15px 0;text-align:center}
 button{padding:14px 28px;border:none;border-radius:30px;background:#ff6b9e;color:white;cursor:pointer !important;font-family:inherit;position:relative;z-index:10}
 .letter-box{background:#fffaf0;color:#222;padding:40px;border-radius:24px;max-width:850px;line-height:2}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;width:100%;max-width:1000px}
-.photo{height:250px;background:white;color:#222;border-radius:12px;display:flex;align-items:center;justify-content:center;transform:rotate(-2deg);transition:.3s}
-.photo:hover{transform:rotate(0) scale(1.05)}
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.photo {
+    width: 300px;
+    height: 450px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-2deg);
+    transition: 0.3s;
+}
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.photo:hover {
+    transform: rotate(0) scale(1.05);
+}
+@media (max-width: 600px) {
+    .photo {
+        width: 200px;
+        height: 300px;
+    }
+
+    .gallery {
+        gap: 10px;
+    }
+}
 
 /* Header Icon Alignment Layout */
 .section-title {
@@ -136,10 +172,54 @@ button{padding:14px 28px;border:none;border-radius:30px;background:#ff6b9e;color
     z-index: 5;
     pointer-events: none;
 }
+
+/* Smaller finale heading */
+.final-title{
+    font-family:"Great Vibes", cursive;
+    font-size:3.8rem;
+    color:#ff8fb1;
+    margin-bottom:30px;
+}
+
+/* Smaller signature */
+.signature{
+    font-family:"Great Vibes", cursive;
+    font-size:2.8rem;
+    color:#ff8fb1;
+    margin-top:35px;
+}
+
+/* Beautiful Thank You Card */
+.thankyou-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:24px;
+    padding:30px 40px;
+    max-width:600px;
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+    margin:25px auto;
+    transition:.4s ease;
+}
+
+.thankyou-card:hover{
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 25px 50px rgba(255,107,158,.25);
+}
+
+.thankyou-card p{
+    font-size:1.25rem;
+    line-height:2;
+    color:#fff;
+    font-weight:400;
+    text-align:center;
+}
+
+
 </style>
 </head>
 <body>
-<div id="loader"><div class="heart">❤️</div><h2>Preparing A Surprise For You Gun</h2><div class="barwrap"><div class="bar"></div></div></div>
+<div id="loader"><div class="heart">❤️</div><h2>Preparing A Surprise For You</h2><div class="barwrap"><div class="bar"></div></div></div>
 
 <section id="passcodeSection">
 <div class="glass">
@@ -170,18 +250,29 @@ Every moment with you has become a memory I cherish. Your smile brightens my dar
 Thank you for being part of my journey. I wish this year brings you happiness, success, good health and all the love your heart deserves.<br><br>
 No matter where life takes us, you'll always have a special place in my heart.<br><br>
 Happy Birthday once again ❤️<br><br>
-Forever yours,<br>Your Favorite Man
+Forever yours,<br>Your Favorite Man<br>Can i say that ?<br>
 </div>
 </section>
 
 <section class="hidden">
-<h2>📸 Our Memories</h2><br>
-<div class="gallery">
-<div class="photo">Add Photo 1</div>
-<div class="photo">Add Photo 2</div>
-<div class="photo">Add Photo 3</div>
-<div class="photo">Add Photo 4</div>
-</div>
+    <h2>Just You ❤️</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="gallery">
+        <div class="photo">
+            <img src="birth1.jpeg" alt="Photo 1">
+        </div>
+
+        <div class="photo">
+            <img src="birth2.jpeg" alt="Photo 2">
+        </div>
+
+        <div class="photo">
+            <img src="birth3.jpeg" alt="Photo 3">
+        </div>
+    </div>
 </section>
 
 <section class="hidden">
@@ -228,8 +319,16 @@ Forever yours,<br>Your Favorite Man
 </section>
 
 <section class="finale hidden">
-<h1>Happy Birthday Gun ❤️</h1>
-<p>Thank you for every smile.<br>Thank you for every memory.<br>Thank you for being part of my story.</p>
+<h1 class="final-title">Happy Birthday Gun ❤️</h1>
+
+<div class="thankyou-card">
+    <p>
+        Thank you for every smile.<br>
+        Thank you for every memory.<br>
+        Thank you for being part of my story.
+    </p>
+</div>
+
 <div class="signature">- Your Favorite Man</div><br>
 <button onclick="firecrackerShow()">Celebrate 🎉</button>
 </section>
@@ -263,7 +362,7 @@ s.style.animationDelay=Math.random()*3+'s';
 document.getElementById('stars').appendChild(s);
 }
 
-function wish(){document.getElementById('wishText').innerText='✨ Close your eyes and make a beautiful wish, Gun ❤️';}
+function wish(){document.getElementById('wishText').innerText='✨ Close your eyes and make a beautiful wish';}
 
 function giftOpen(){
     document.getElementById('giftCard').classList.add('opened');
